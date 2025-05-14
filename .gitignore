@@ -1,0 +1,65 @@
+.vscode/
+Packages/
+*.meta
+
+# Unity
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+sysinfo.txt
+
+# Visual Studio / VS Code
+.vscode/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Unity Asset Store tools
+Assets/AssetStoreTools*
+
+# Crash Reports
+crashlytics-build.properties
+
+# Unity generated
+*.apk
+*.aab
+
+# Addressables (jika pakai)
+Assets/AddressableAssetsData/*/*.bin*
+Assets/AddressableAssetsData/*/*.asset
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Exclude package lock if you prefer fresh resolution each time
+Packages/packages-lock.json
+
+# Jangan abaikan file .meta — penting untuk Unity!
+# Jangan tambahkan baris *.meta ke .gitignore
+
+# Optional: ignore keystores
+*.keystore
