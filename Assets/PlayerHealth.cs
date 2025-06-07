@@ -21,7 +21,10 @@ public class PlayerHealth : MonoBehaviour
         healthUI.SetMaxHearts(maxHealth);
 
         spriteRenderer = GetComponent<SpriteRenderer>();
+        HealthItem.OnHealthCollect += heal;
     }
+    public GameObject healthItemPrefab;
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -30,6 +33,20 @@ public class PlayerHealth : MonoBehaviour
         {
             TakeDamage(enemy.damage);
         }
+    }
+
+    private void OnDestroy()
+{
+    HealthItem.OnHealthCollect -= heal;
+}
+    void heal (int amount)
+    {
+        currentHealth += amount;
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        healthUI.UpdateHearts(currentHealth);
     }
 
     private void TakeDamage(int damage)
@@ -52,4 +69,5 @@ public class PlayerHealth : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         spriteRenderer.color = Color.white;
     }
+
 }

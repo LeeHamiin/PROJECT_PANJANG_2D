@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class GameContoller : MonoBehaviour
 {
-    public GameObject gameOverScreen;
+    public GameObject gameOverScreen;   
     public TMP_Text survivedText;
     private int survivedLevelsCount;
 
@@ -17,7 +17,7 @@ public class GameContoller : MonoBehaviour
         gameOverScreen.SetActive(false);
     }
 
-    void GameOverScreen()
+    public void GameOverScreen()
     {
         gameOverScreen.SetActive(true);
         survivedText.text = "YOU SURVIVED " + survivedLevelsCount + " LEVEL";
@@ -38,5 +38,12 @@ void OnDestroy()
 {
     PlayerHealth.OnPlayerDied -= GameOverScreen;
 }
+public void GameOver()
+{
+    // Jika kamu tidak ingin menampilkan GameOverScreen dulu, langsung load scene:
+    SceneManager.LoadScene("Finish");
+}
+
+
 
 }

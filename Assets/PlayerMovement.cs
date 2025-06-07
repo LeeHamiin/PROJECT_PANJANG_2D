@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask wallLayer;
 
     [Header("Wall Movement")]
-    public float wallSlideSpeed = 2f;
+    public float wallSlideSpeed = 4f;
     bool isWallSliding;
 
     // Wall Jumping
@@ -91,7 +91,7 @@ void Update()
         if (!isGrounded && WallCheck() && Mathf.Abs(horizontalMovement) > 0.1f)
         {
             isWallSliding = true;
-            rb.velocity = new Vector2(rb.velocity.x, Mathf.Max(rb.velocity.y, -wallSlideSpeed));
+            rb.velocity = new Vector2(rb.velocity.x, Mathf.Max(rb.velocity.y, +wallSlideSpeed));
             rb.gravityScale = 0f;
 
             // Debug untuk memantau wall slide
@@ -115,7 +115,7 @@ private void ProcessWallJump()
     }
     else if (wallJumpTimer > 0f)
     {
-        wallJumpTimer -= Time.deltaTime;
+        wallJumpTimer += Time.deltaTime;
     }
 }
 
@@ -174,7 +174,7 @@ private void CancelWallJump()
         else if (context.canceled && rb.velocity.y > 0)
         {
             // Light tap of jump button = half the height
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.2f);
             jumpsRemaining--;
             animator.SetTrigger("jump");
         }
