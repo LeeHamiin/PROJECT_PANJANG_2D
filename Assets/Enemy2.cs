@@ -29,7 +29,6 @@ public class Enemy2 : MonoBehaviour
             Vector3 localScale = transform.localScale;
             localScale.x *= -1;
             transform.localScale = localScale;
-            transform.position = localScale;
         }
     }
 }
