@@ -14,7 +14,6 @@ public class PlayerHealth : MonoBehaviour
 
     public static event Action OnPlayerDied;
 
-    // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
@@ -23,8 +22,8 @@ public class PlayerHealth : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         HealthItem.OnHealthCollect += heal;
     }
-    public GameObject healthItemPrefab;
 
+    public GameObject healthItemPrefab;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -58,7 +57,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            // player dead! -- call game over, animation, etc
+            // player dead - call game over, animation, etc
             OnPlayerDied?.Invoke(); // pakai null check
         }
     }
